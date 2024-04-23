@@ -7,11 +7,12 @@
              >
 
     <HorizontalStackLayout>
-        <CollectionView ItemsLayout="VerticalGrid, 4" x:Name="Panel">
+        <CollectionView x:Name="Panel">
             <CollectionView.ItemTemplate>
                 <DataTemplate>
                     <VerticalStackLayout>
-                        <Image Source="{Binding ImagePath}"/>
+                        <Label Text="{Binding Id}"/> 
+                        <Image Source="{Binding Path}"/>
                         <Label Text="{Binding Name}"/> 
                         <Label Text="{Binding Price}"/>
                     </VerticalStackLayout>
@@ -20,6 +21,9 @@
         </CollectionView>
         <ListView>
         </ListView>
+  
+        <VerticalStackLayout x:Name="helpie"></VerticalStackLayout>
+        
     </HorizontalStackLayout>
 
     

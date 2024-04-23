@@ -1,4 +1,5 @@
-﻿using Microsoft.Extensions.Logging;
+﻿using MauiSelfCheckout.Resources.Controls;
+using Microsoft.Extensions.Logging;
 
 namespace MauiSelfCheckout;
 
