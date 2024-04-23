@@ -1,24 +1,51 @@
-﻿namespace MauiSelfCheckout;
+﻿using System.Collections.ObjectModel;
+using MauiSelfCheckout.Resources.Controls;
+
+namespace MauiSelfCheckout;
 
 public partial class MainPage : ContentPage
 {
-	int count = 0;
+    private CollectionView _collectionView;
+    private ObservableCollection<ProductCardViewModel> ListOfData;
+        public MainPage()
+    {
+        InitializeComponent();
+        ListOfData = new ObservableCollection<ProductCardViewModel>
+        {
+            new()
+            {
+                ImagePath = "",
+                Name = "imie 1",
+                Price = "5.50"
+            },
+            new()
+            {
+                ImagePath = "",
+                Name = "imie 2",
+                Price = "3.99"
+            },
+            new()
+            {
+                ImagePath = "",
+                Name = "imie 3",
+                Price = "4.50"
+            },
+            new()
+            {
+                ImagePath = "",
+                Name = "imie 4",
+                Price = "4.50"
+            }
+        };
+        _collectionView = Panel;
+        createProductCards();
+    }
 
-	public MainPage()
-	{
-		InitializeComponent();
-	}
+    private void createProductCards()
+    {
+        _collectionView.ItemsSource = ListOfData;
 
-	private void OnCounterClicked(object sender, EventArgs e)
-	{
-		count++;
+    }
 
-		if (count == 1)
-			CounterBtn.Text = $"Clicked {count} time";
-		else
-			CounterBtn.Text = $"Clicked {count} times";
 
-		SemanticScreenReader.Announce(CounterBtn.Text);
-	}
 }
-
